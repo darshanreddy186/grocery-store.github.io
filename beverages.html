@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+    <title>Beverages Section</title>
+    <link rel="stylesheet" type="text/css" href="fruits.css">
+    <body>
+      <nav class="navigation">
+        
+        <img src="images/logo-png.png" alt="logo">
+
+        <ul class="menu">
+
+            <li>
+                <a href="home-page.html" class="active">Home</a>
+            </li>
+
+            <li>
+                <a href="#category">Categories</a>
+            </li>
+            <li>
+                <a href="Contactus.html">Contact&nbsp;Us</a>
+            </li>
+           
+            
+            <li>
+                <a href="AboutUs.html">About&nbsp;us</a>
+
+            </li>
+            <li>
+                <a href="login.html">Login</a>
+            </li>
+
+            </ul>
+
+        <div class="right-nav">
+            </a>
+            <a href="profile.html" class="user-profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        </nav>
+        <section id="popular-product">
+            <div class="product-heading">
+                <h2 class = 'fruits-heading'>Beverages Section</h2>
+            </div>
+            <div class="product-container">
+                <div class="product-box">
+                    <img alt="Maaza" src="images/maaza.jpg">
+                    <strong>Maaza</strong>
+                    <span class="quantity">250ML</span>
+                    <span class="price">Rs. 30</span>
+                    <button class="cart-btn" onclick="addToCart('Maaza',30.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="7up" src="images/7up.jpg">
+                    <strong>7up</strong>
+                    <span class="quantity">250ML</span>
+                    <span class="price">Rs. 25</span>
+                    <button class="cart-btn" onclick="addToCart('7up',25.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="coca-cola" src="images/cocacola.jpeg">
+                    <strong>coca-cola</strong>
+                    <span class="quantity">250ML</span>
+                    <span class="price">Rs. 40</span>
+                    <button class="cart-btn" onclick="addToCart('Coca-Cola',40.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="mountaindew" src="images/mountaindew.webp">
+                    <strong>mountaindew</strong>
+                    <span class="quantity">250ML</span>
+                    <span class="price">Rs. 33</span>
+                    <button class="cart-btn" onclick="addToCart('Mountaindew',33.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="thumsup" src="images/thumsup.jpeg">
+                    <strong>thumsup</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 50</span>
+                    <button class="cart-btn" onclick="addToCart('Thumsup',50.00)">Add to Cart</button>
+                </div><div class="product-box">
+                    <img alt="sting" src="images/sting.jpg">
+                    <strong>sting</strong>
+                    <span class="quantity">250ML</span>
+                    <span class="price">Rs. 20</span>
+                    <button class="cart-btn" onclick="addToCart('Sting',20.00)">Add to Cart</button>
+                </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="cart-container">
+            <h2>Your Shopping Cart</h2>
+      
+            <div id="cart-items" class="cart-items">
+            </div>
+      
+            <div class="total-price" id="total-price">Total: $0.00</div>
+          </div>
+      
+          <script>
+            let cart = [];
+      
+            function addToCart(name, price) {
+              cart.push({ name, price });
+              updateCart();
+            }
+      
+            function removeFromCart(index) {
+              cart.splice(index, 1);
+              updateCart();
+            }
+      
+            function updateCart() {
+              const cartItemsContainer = document.getElementById("cart-items");
+              const totalPriceElement = document.getElementById("total-price");
+      
+              cartItemsContainer.innerHTML = "";
+      
+              cart.forEach((item, index) => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+                          <span>${item.name}</span>
+                          <button class="remove-from-cart-button" onclick="removeFromCart(${index})">Remove</button>
+                      `;
+                cartItemsContainer.appendChild(cartItem);
+              });
+      
+              const totalPrice = cart
+                .reduce((acc, curr) => acc + curr.price, 0)
+                .toFixed(2);
+              totalPriceElement.textContent = `Total: $${totalPrice}`;
+            }
+          </script>
+
+    </body>
+</html>

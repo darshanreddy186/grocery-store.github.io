@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+    <title>Stationary Section</title>
+    <link rel="stylesheet" type="text/css" href="stationary.css">
+    <body>
+        <nav class="navigation">
+        
+            <img src="images/logo-png.png" alt="logo">
+    
+            <ul class="menu">
+    
+                <li>
+                    <a href="home-page.html" class="active">Home</a>
+                </li>
+    
+                <li>
+                    <a href="#category">Categories</a>
+                </li>
+                <li>
+                    <a href="Contactus.html">Contact&nbsp;Us</a>
+                </li>
+               
+                
+                <li>
+                    <a href="AboutUs.html">About&nbsp;us</a>
+    
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+    
+                </ul>
+    
+            <div class="right-nav">
+                </a>
+                <a href="profile.html" class="user-profile">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+            </nav>
+        <section id="popular-product">
+            <div class="product-heading">
+                <h2 class = 'fruits-heading'>Stationary Section</h2>
+            </div>
+            <div class="product-container">
+                <div class="product-box">
+                    <img alt="crayons" src="images/crayons.webp">
+                    <strong>crayons</strong>
+                    <span class="quantity">1 pack</span>
+                    <span class="price">Rs. 30</span>
+                    <button class="cart-btn" onclick="addToCart('Cryons',30.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="paint box" src="images/paintbox.webp">
+                    <strong>paint box</strong>
+                    <span class="quantity">1 box</span>
+                    <span class="price">Rs. 120</span>
+                    <button class="cart-btn" onclick="addToCart('Paint Box',120.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Classmate Note Book" src="images/classmatenotebook.webp">
+                    <strong>Classmate Note Book</strong>
+                    <span class="quantity">1 book</span>
+                    <span class="price">Rs. 60</span>
+                    <button class="cart-btn" onclick="addToCart('Classmate Note Book',60.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Pencil Box" src="images/pencilbox.jpg">
+                    <strong>Pencil Box</strong>
+                    <span class="quantity">1 </span>
+                    <span class="price">Rs. 250</span>
+                    <button class="cart-btn" onclick="addToCart('Pencil Box',250.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Eraser" src="images/eraser.webp">
+                    <strong>Eraser</strong>
+                    <span class="quantity">pack of three</span>
+                    <span class="price">Rs. 65</span>
+                    <button class="cart-btn" onclick="addToCart('Eraser',65.00)">Add to Cart</button>
+                </div><div class="product-box">
+                    <img alt="Sharpener" src="images/sharpener.webp">
+                    <strong>Sharpener</strong>
+                    <span class="quantity">1</span>
+                    <span class="price">Rs. 25</span>
+                    <button class="cart-btn" onclick="addToCart('Sharpener',25.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="apsara Pencil Box" src="images/apsarapencilbox.png">
+                    <strong>apsara Pencil Box</strong>
+                    <span class="quantity">1 box</span>
+                    <span class="price">Rs. 55</span>
+                    <button class="cart-btn" onclick="addToCart('Apsara Pencil Box',25.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Iron Scale" src="images/ironscale.jpg">
+                    <strong>Iron Scale</strong>
+                    <span class="quantity">1</span>
+                    <span class="price">Rs. 40</span>
+                    <button class="cart-btn" onclick="addToCart('Iron Scale',40.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Paint Brush" src="images/paintbrush.png">
+                    <strong>Paint Brush</strong>
+                    <span class="quantity">1</span>
+                    <span class="price">Rs. 30</span>
+                    <button class="cart-btn" onclick="addToCart('Paint Brush',30.00)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+
+        
+        <div class="cart-container">
+            <h2>Your Shopping Cart</h2>
+      
+            <div id="cart-items" class="cart-items">
+            </div>
+      
+            <div class="total-price" id="total-price">Total: $0.00</div>
+          </div>
+      
+          <script>
+            let cart = [];
+      
+            function addToCart(name, price) {
+              cart.push({ name, price });
+              updateCart();
+            }
+      
+            function removeFromCart(index) {
+              cart.splice(index, 1);
+              updateCart();
+            }
+      
+            function updateCart() {
+              const cartItemsContainer = document.getElementById("cart-items");
+              const totalPriceElement = document.getElementById("total-price");
+      
+              cartItemsContainer.innerHTML = "";
+      
+              cart.forEach((item, index) => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+                          <span>${item.name}</span>
+                          <button class="remove-from-cart-button" onclick="removeFromCart(${index})">Remove</button>
+                      `;
+                cartItemsContainer.appendChild(cartItem);
+              });
+      
+              const totalPrice = cart
+                .reduce((acc, curr) => acc + curr.price, 0)
+                .toFixed(2);
+              totalPriceElement.textContent = `Total: $${totalPrice}`;
+            }
+          </script>
+
+    </body>
+</html>

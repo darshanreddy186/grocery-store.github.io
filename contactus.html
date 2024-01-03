@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Form</title>
+        <link rel="stylesheet" href="contactus.css">
+    </head>
+
+    <body>
+        <nav class="navigation">
+        
+            <img src="images/logo-png.png" alt="logo">
+    
+            <ul class="menu">
+    
+                <li>
+                    <a href="home-page.html" class="active">Home</a>
+                </li>
+    
+                <li>
+                    <a href="#category">Categories</a>
+                </li>
+                <li>
+                    <a href="Contactus.html">Contact&nbsp;Us</a>
+                </li>
+               
+                
+                <li>
+                    <a href="AboutUs.html">About&nbsp;us</a>
+    
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+    
+                </ul>
+    
+            <div class="right-nav">
+                </a>
+                <a href="profile.html" class="user-profile">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+            </nav>
+        <div class="wrapper">
+            <h2 text-align = 'center'>Contact Form</h2>
+            <div id="error_message"></div>
+            <form id="myform" onsubmit="return validate();">
+                <div class="input_field">
+                    <input type="text" placeholder="Name" id="name" required> 
+                </div>
+                <div class="input_field">
+                    <input type="text" placeholder="Phone" id="phone" required> 
+                </div>
+
+                <div class="input_field">
+                    <input type="text" placeholder="Email" id="email" required> 
+                </div>
+
+                <div class="input_field">
+                    <textarea placeholder="Message" id="message" required></textarea>
+                </div>
+
+                <button type="submit" class="btn">
+                    
+                    <a href="contactform-confo-html.html" style = 'color: white; text-decoration: none;'>
+                        
+                        Submit
+                    
+                    </a>
+                
+                </button>
+            </form>
+
+        </div>
+
+    </body>
+
+</html>

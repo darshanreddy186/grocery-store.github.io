@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Poppins',sans-serif;
+    
+}
+
+.navigation img{
+    width: 100px;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    max-width: 1070px;
+    width: 100%;
+    margin-left: 90px;
+    margin: 0px auto;
+}
+.menu{
+    display: flex;
+	align-items:left;
+}
+.menu li a{
+    padding: 3px 10px;
+    margin: 0px 15px;
+    color: #3b3b3b;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all ease 0.3s;
+	
+}
+.right-nav{
+    display: flex;
+    align-items:right;
+    grid-template-columns: auto auto;
+    grid-gap: 25px
+}
+.right-nav a{
+    width:40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+}
+.right-nav .cart{
+    background-color: #ecf7ee;
+    color: lightgreen;
+}
+.right-nav .user-profile{
+    background-color: #ecf7ee;
+    color:aqua;
+}
+
+
+.sec {
+    background: #74d88b;
+    width: 35%;
+    position: absolute;
+    left:65%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+.head h1 {
+    color: #78d98f;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+}
+.login {
+    position: absolute;
+    width: 65%;
+    height: 100%;
+}
+
+form {
+    width: 50%;
+    position: relative;
+    margin: 0 auto
+}
+
+form input {
+    position: relative;
+    margin: 9px auto;
+    border: none;
+    font-size: 1.2em;
+    padding: 1em 1.3em;
+    background: #eae7e7;
+    border-radius: 6px;
+    width: 100%;
+}
+
+form button {
+    width: 70%;
+    position: relative;
+    color: white;
+    background: #74d88b;
+    border: none;
+    font-size: 1em;
+    padding: 1.3em 2em;
+    border-radius: 30px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 3em 0em;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+    <title>Dry-fruits,nuts Section</title>
+    <link rel="stylesheet" type="text/css" href="driedfruits,nuts.css">
+    <body>
+      <nav class="navigation">
+        
+        <img src="images/logo-png.png" alt="logo">
+
+        <ul class="menu">
+
+            <li>
+                <a href="home-page.html" class="active">Home</a>
+            </li>
+
+            <li>
+                <a href="#category">Categories</a>
+            </li>
+            <li>
+                <a href="Contactus.html">Contact&nbsp;Us</a>
+            </li>
+           
+            
+            <li>
+                <a href="AboutUs.html">About&nbsp;us</a>
+
+            </li>
+            <li>
+                <a href="login.html">Login</a>
+            </li>
+
+            </ul>
+
+        <div class="right-nav">
+            </a>
+            <a href="profile.html" class="user-profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        </nav>
+        <section id="popular-product">
+            <div class="product-heading">
+                <h2 class = 'fruits-heading'>Driedfruits,nuts Section</h2>
+            </div>
+            <div class="product-container">
+                <div class="product-box">
+                    <img alt="pista" src="images/pista.webp">
+                    <strong>pista</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 200</span>
+                    <button class="cart-btn" onclick="addToCart('Pista',200.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="badam" src="images/badam.jpg">
+                    <strong>badam</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 180</span>
+                    <button class="cart-btn" onclick="addToCart('Badam',180.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="cashew" src="images/cashew.jpg">
+                    <strong>cashew</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 240</span>
+                    <button class="cart-btn" onclick="addToCart('Cashew',240.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="dates" src="images/dates.jpeg">
+                    <strong>dates</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 160</span>
+                    <button class="cart-btn" onclick="addToCart('Dates',160.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="dry grapes" src="images/drygrapes.webp">
+                    <strong>dry grapes</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 150</span>
+                    <button class="cart-btn" onclick="addToCart('Dry Grapes',150.00)">Add to Cart</button>
+                </div><div class="product-box">
+                    <img alt="blueberry" src="images/blueberry.webp">
+                    <strong>blueberry</strong>
+                    <span class="quantity">1</span>
+                    <span class="price">Rs. 340</span>
+                    <button class="cart-btn" onclick="addToCart('Blueberry',340.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="walnuts" src="images/walnuts.jpeg">
+                    <strong>walnuts</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 125</span>
+                    <button class="cart-btn" onclick="addToCart('Walnuts',125.00)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+        
+        <div class="cart-container">
+            <h2>Your Shopping Cart</h2>
+      
+            <div id="cart-items" class="cart-items">
+            </div>
+      
+            <div class="total-price" id="total-price">Total: $0.00</div>
+          </div>
+      
+          <script>
+            let cart = [];
+      
+            function addToCart(name, price) {
+              cart.push({ name, price });
+              updateCart();
+            }
+      
+            function removeFromCart(index) {
+              cart.splice(index, 1);
+              updateCart();
+            }
+      
+            function updateCart() {
+              const cartItemsContainer = document.getElementById("cart-items");
+              const totalPriceElement = document.getElementById("total-price");
+      
+              cartItemsContainer.innerHTML = "";
+      
+              cart.forEach((item, index) => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+                          <span>${item.name}</span>
+                          <button class="remove-from-cart-button" onclick="removeFromCart(${index})">Remove</button>
+                      `;
+                cartItemsContainer.appendChild(cartItem);
+              });
+      
+              const totalPrice = cart
+                .reduce((acc, curr) => acc + curr.price, 0)
+                .toFixed(2);
+              totalPriceElement.textContent = `Total: $${totalPrice}`;
+            }
+          </script>
+
+    </body>
+</html>

@@ -1,0 +1,132 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+.navigation img{
+    width: 100px;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: poppins;
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    max-width: 1070px;
+    width: 100%;
+    margin-left: 90px;
+    margin: 0px auto;
+}
+.menu{
+    display: flex;
+	align-items:left;
+}
+.menu li a{
+    padding: 3px 10px;
+    margin: 0px 15px;
+    color: #3b3b3b;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all ease 0.3s;
+	
+}
+.right-nav{
+    display: flex;
+    align-items:right;
+    grid-template-columns: auto auto;
+    grid-gap: 25px
+}
+.right-nav a{
+    width:40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+}
+.right-nav .cart{
+    background-color: #ecf7ee;
+    color: lightgreen;
+}
+.right-nav .user-profile{
+    background-color: #ecf7ee;
+    color:aqua;
+}
+
+
+  body{
+      background: #c8efd1;
+  }
+
+  .wrapper{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      max-width: 350px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 5px;
+  }
+
+  .wrapper h2{
+      text-align: center;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #332902;
+  }
+
+  .wrapper .input_field{
+    margin-bottom: 10px;
+  }
+
+  .wrapper .input_field input[type="text"],
+  .wrapper textarea{
+      border: 1px solid #e0e0e0;
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+  }
+
+  .wrapper .btn input[type="submit"]{
+      border: 0px;
+      margin-top: 15px;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      background: #fece0c;
+      color: #332902;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+  }
+
+  .btn {
+    border-radius:20px;
+	color:#fff;
+	margin-top:18px;
+	padding:10px;
+	background-color:#4ccd6a;
+	font-size:15px;
+	border:none;
+    font-weight: 1000px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+    <title>Vegetables Section</title>
+    <link rel="stylesheet" type="text/css" href="fruits.css">
+    <body>
+      <nav class="navigation">
+        
+        <img src="images/logo-png.png" alt="logo">
+
+        <ul class="menu">
+
+            <li>
+                <a href="home-page.html" class="active">Home</a>
+            </li>
+
+            <li>
+                <a href="#category">Categories</a>
+            </li>
+            <li>
+                <a href="Contactus.html">Contact&nbsp;Us</a>
+            </li>
+           
+            
+            <li>
+                <a href="AboutUs.html">About&nbsp;us</a>
+
+            </li>
+            <li>
+                <a href="login.html">Login</a>
+            </li>
+
+            </ul>
+
+        <div class="right-nav">
+            </a>
+            <a href="profile.html" class="user-profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        </nav>
+        <section id="popular-product">
+            <div class="product-heading">
+                <h2 class = 'fruits-heading'>Vegetables Section</h2>
+            </div>
+            <div class="product-container">
+                <div class="product-box">
+                    <img alt="carrot" src="images/carrot.webp">
+                    <strong>carrot</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 40</span>
+                    <button class="cart-btn" onclick="addToCart('Carrot',40.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="chili" src="images/chilli.jpg">
+                    <strong>Chili</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 80</span>
+                    <button class="cart-btn" onclick="addToCart('chilli',80.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="onion" src="images/onion.jpg">
+                    <strong>Onion</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 50</span>
+                    <button class="cart-btn" onclick="addToCart('Onion',50.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="potato" src="images/potato.jpg">
+                    <strong>Potato</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 60</span>
+                    <button class="cart-btn" onclick="addToCart('Potato',60.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="beetroot" src="images/beetroot.webp">
+                    <strong>beetroot</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 55</span>
+                    <button class="cart-btn" onclick="addToCart('Beetroot',55.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="tomato" src="images/tomato.jpg">
+                    <strong>Tomato</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 80</span>
+                    <button class="cart-btn" onclick="addToCart('tomato',80.00)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+        
+        <div class="cart-container">
+            <h2>Your Shopping Cart</h2>
+      
+            <div id="cart-items" class="cart-items">
+            </div>
+      
+            <div class="total-price" id="total-price">Total: $0.00</div>
+          </div>
+      
+          <script>
+            let cart = [];
+      
+            function addToCart(name, price) {
+              cart.push({ name, price });
+              updateCart();
+            }
+      
+            function removeFromCart(index) {
+              cart.splice(index, 1);
+              updateCart();
+            }
+      
+            function updateCart() {
+              const cartItemsContainer = document.getElementById("cart-items");
+              const totalPriceElement = document.getElementById("total-price");
+      
+              cartItemsContainer.innerHTML = "";
+      
+              cart.forEach((item, index) => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+                          <span>${item.name}</span>
+                          <button class="remove-from-cart-button" onclick="removeFromCart(${index})">Remove</button>
+                      `;
+                cartItemsContainer.appendChild(cartItem);
+              });
+      
+              const totalPrice = cart
+                .reduce((acc, curr) => acc + curr.price, 0)
+                .toFixed(2);
+              totalPriceElement.textContent = `Total: $${totalPrice}`;
+            }
+          </script>
+    </body>
+</html>

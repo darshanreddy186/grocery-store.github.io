@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+    <title>Snacks Section</title>
+    <link rel="stylesheet" type="text/css" href="snacks.css">
+    <body>
+      <nav class="navigation">
+        
+        <img src="images/logo-png.png" alt="logo">
+
+        <ul class="menu">
+
+            <li>
+                <a href="home-page.html" class="active">Home</a>
+            </li>
+
+            <li>
+                <a href="#category">Categories</a>
+            </li>
+            <li>
+                <a href="Contactus.html">Contact&nbsp;Us</a>
+            </li>
+           
+            
+            <li>
+                <a href="AboutUs.html">About&nbsp;us</a>
+
+            </li>
+            <li>
+                <a href="login.html">Login</a>
+            </li>
+
+            </ul>
+
+        <div class="right-nav">
+            </a>
+            <a href="profile.html" class="user-profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        </nav>
+        <section id="popular-product">
+            <div class="product-heading">
+                <h2 class = 'fruits-heading'>Snacks Section</h2>
+            </div>
+            <div class="product-container">
+                <div class="product-box">
+                    <img alt="Bingo Chips" src="images/bingochips.webp">
+                    <strong>Bingo Chips</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 20</span>
+                    <button class="cart-btn" onclick="addToCart('Bingo Chips',20.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Milky Bar" src="images/milkybar.jpg">
+                    <strong>Milky Bar</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 40</span>
+                    <button class="cart-btn" onclick="addToCart('Milkey Bar',40.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Dairy Milk" src="images/dairymilk.webp">
+                    <strong>Dairy Milk</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 40</span>
+                    <button class="cart-btn" onclick="addToCart('Dairy Milk',40.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Cup Cake" src="images/cupcake.webp">
+                    <strong>Cup Cake</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 60</span>
+                    <button class="cart-btn" onclick="addToCart('Cup Cake',25.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Gems" src="images/gems.webp">
+                    <strong>Gems</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 50</span>
+                    <a href="cart.html" class="cart-btn" style="text-decoration: none;">
+                        <i class="fas fa-shopping-bag"></i> Add to Cart
+                    </a>
+                </div><div class="product-box">
+                    <img alt="Oreo Biscuit" src="images/oreobiscuit.jpg">
+                    <strong>Oreo Biscuit</strong>
+                    <span class="quantity">1</span>
+                    <span class="price">Rs. 40</span>
+                    <button class="cart-btn" onclick="addToCart('Oreo Biscuit',40.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Bread" src="images/bread.jpeg">
+                    <strong>Bread</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 50</span>
+                    <button class="cart-btn" onclick="addToCart('Bread',50.00)">Add to Cart</button>
+                </div>
+                <div class="product-box">
+                    <img alt="Icecream" src="images/icecream.webp">
+                    <strong>Icecream</strong>
+                    <span class="quantity">1 KG</span>
+                    <span class="price">Rs. 40</span>
+                    <button class="cart-btn" onclick="addToCart('Icecream',40.00)">Add to Cart</button>          
+                 </div>
+        </section>
+        
+        <div class="cart-container">
+            <h2>Your Shopping Cart</h2>
+      
+            <div id="cart-items" class="cart-items">
+            </div>
+      
+            <div class="total-price" id="total-price">Total: $0.00</div>
+          </div>
+      
+          <script>
+            let cart = [];
+      
+            function addToCart(name, price) {
+              cart.push({ name, price });
+              updateCart();
+            }
+      
+            function removeFromCart(index) {
+              cart.splice(index, 1);
+              updateCart();
+            }
+      
+            function updateCart() {
+              const cartItemsContainer = document.getElementById("cart-items");
+              const totalPriceElement = document.getElementById("total-price");
+      
+              cartItemsContainer.innerHTML = "";
+      
+              cart.forEach((item, index) => {
+                const cartItem = document.createElement("div");
+                cartItem.classList.add("cart-item");
+                cartItem.innerHTML = `
+                          <span>${item.name}</span>
+                          <button class="remove-from-cart-button" onclick="removeFromCart(${index})">Remove</button>
+                      `;
+                cartItemsContainer.appendChild(cartItem);
+              });
+      
+              const totalPrice = cart
+                .reduce((acc, curr) => acc + curr.price, 0)
+                .toFixed(2);
+              totalPriceElement.textContent = `Total: $${totalPrice}`;
+            }
+          </script>
+
+
+    </body>
+</html>
